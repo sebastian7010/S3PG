@@ -44,30 +44,38 @@ function renderSearchResults(results) {
         return;
     }
 
-    // Se construye un layout tipo grid para los resultados de la búsqueda.
-    let html = '<div class="search-results-grid">';
+    // Crear un DocumentFragment para una inserción más eficiente
+    const fragment = document.createDocumentFragment();
+    const gridDiv = document.createElement('div');
+    gridDiv.classList.add('search-results-grid');
+
     results.forEach(result => {
         const product = result.item;
-        html += `
-      <div class="product-card" data-id="${product.id}">
-        <img src="${product.image}" alt="${product.name}" class="product-image" data-gallery='${JSON.stringify(product.gallery && product.gallery.length ? product.gallery : [product.image])}'>
-        <div class="product-details">
-          <h3>${product.name}</h3>
-          <p>$${product.price.toLocaleString()}</p>
-          <div class="quantity-controls">
-            <button class="quantity-btn minus" data-id="${product.id}">-</button>
-            <span id="quantity-${product.id}">0</span>
-            <button class="quantity-btn plus" data-id="${product.id}">+</button>
-          </div>
-          <button class="buy-btn" onclick="buyProduct(${product.id})">Comprar</button>
-        </div>
-      </div>`;
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.dataset.id = product.id;
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="product-image" data-gallery='${JSON.stringify(product.gallery && product.gallery.length ? product.gallery : [product.image])}'>
+            <div class="product-details">
+                <h3>${product.name}</h3>
+                <p>$${product.price.toLocaleString()}</p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus" data-id="${product.id}">-</button>
+                    <span id="quantity-${product.id}">0</span>
+                    <button class="quantity-btn plus" data-id="${product.id}">+</button>
+                </div>
+                <button class="buy-btn" onclick="buyProduct(${product.id})">Comprar</button>
+            </div>`;
+        gridDiv.appendChild(productCard);
     });
-    html += '</div>';
-    container.innerHTML = html;
+
+    fragment.appendChild(gridDiv);
+    container.appendChild(fragment);
+
     attachEventListeners();
-    assignImageClickEvents(); // Agrega esta línea para asignar el evento clic a las imágenes
+    assignImageClickEvents();
 }
+
 
 
 /** Actualiza el carrito flotante (floating cart)

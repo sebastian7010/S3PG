@@ -35,6 +35,27 @@ body {
     background-color: #fff;
 }
 
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-items: center;
+}
+
+@media (max-width: 480px) {
+    .search-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Forzar 2 columnas en móviles */
+        gap: 10px;
+        /* Reducir el gap si es necesario */
+        padding: 10px;
+        /* Ajustar el padding */
+    }
+}
+
 .icon-lupa {
     width: 30px;
     height: 30px;
@@ -275,7 +296,7 @@ body {
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    width: 280px;
+    width: 100%;
 }
 
 .product-card:hover {
