@@ -42,33 +42,41 @@ body {
 
 /* Estilos comunes para elementos de la navbar (enlaces y botones) */
 
-.navbar ul li a,
-.navbar ul li button.nav-btn {
+.nav-btn {
+    display: inline-block;
     font-family: 'Fira Sans', sans-serif;
-    color: rgb(250, 250, 250);
-    font-size: 1.3rem;
-    border: 2px solid white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-
-/* Específico para botones */
-
-.navbar ul li button.nav-btn {
-    background: none;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6600, #ffcc00);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
 }
 
+.nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-45deg);
+    transition: all 0.5s ease;
+}
 
-/* Estado hover para ambos */
+.nav-btn:hover::before {
+    left: 200%;
+}
 
-.navbar ul li a:hover,
-.navbar ul li button.nav-btn:hover {
-    background: white;
-    color: #333;
+.nav-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 
