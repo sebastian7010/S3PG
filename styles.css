@@ -321,6 +321,8 @@ body {
 }
 
 .pet-image-container {
+    position: relative;
+    /* Agregado */
     background: linear-gradient(-29deg, #ff1a4a, #faae42);
     width: 150px;
     /* Ancho fijo */
@@ -341,6 +343,22 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.pet-image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-45deg);
+    transition: all 0.5s ease;
+}
+
+.pet-image-container:hover::after {
+    left: 100%;
 }
 
 .icono-whats {

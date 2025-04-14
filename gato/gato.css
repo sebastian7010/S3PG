@@ -58,20 +58,43 @@ body {
 }
 
 .filter-btn {
+    position: relative;
+    /* Para posicionar el pseudo-elemento */
+    display: inline-block;
+    /* Permite que se respete el padding y el pseudo-elemento */
     font-family: 'Fira Sans', sans-serif;
-    background-color: #ff7300;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ff7300, #fe5800);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    overflow: hidden;
+    /* Oculta el pseudo-elemento fuera del botón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: left 0.5s ease;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
 }
 
 .filter-btn:hover {
-    background-color: #fe5800;
-    transform: scale(1.05);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -128,20 +151,39 @@ body {
 }
 
 .navbar ul li a {
+    display: inline-block;
     font-family: 'Fira Sans', sans-serif;
-    text-decoration: none;
+    font-weight: 600;
     font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #ffffff;
-    border-radius: 0.5rem;
-    color: black;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, #ff6600, #ffcc00);
+    border-radius: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar ul li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: all 0.5s ease;
+}
+
+.navbar ul li a:hover::before {
+    left: 100%;
 }
 
 .navbar ul li a:hover {
-    transform: scale(1.1);
-    background-color: #000000;
-    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 
