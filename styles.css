@@ -1342,8 +1342,8 @@ body {
     .floating-cart {
         bottom: 20px;
         right: 10px;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
     .floating-cart .cart-icon {
         width: 30px;
