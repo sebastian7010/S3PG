@@ -231,6 +231,19 @@ window.changePage = function(categoryId, direction) {
     renderCategory(categoryId);
 };
 
+
+/** Cambiar página del carrusel **/
+window.changePage = function(categoryId, direction) {
+    const categoryProducts = products.filter(product => product.categoryId === categoryId);
+    const totalPages = Math.ceil(categoryProducts.length / productsPerPage);
+
+    categoryPages[categoryId] += direction;
+    if (categoryPages[categoryId] < 0) categoryPages[categoryId] = 0;
+    if (categoryPages[categoryId] >= totalPages) categoryPages[categoryId] = totalPages - 1;
+
+    renderCategory(categoryId);
+};
+
 /** Función para la acción de "comprar" un producto **/
 function buyProduct(productId) {
     // Buscar el producto en el arreglo global "products"
@@ -238,8 +251,9 @@ function buyProduct(productId) {
 
     // Si no se encuentra, se envía un mensaje genérico
     let message = product ?
-        `Hola, estoy interesado en comprar el producto: ${product.name}.` :
+        `Hola, quiero comprar ${product.name} por $${product.price.toLocaleString()}.` :
         "Hola, estoy interesado en comprar este producto.";
+
 
     // Número de WhatsApp (asegúrate de que esté en el formato correcto, sin símbolos ni espacios)
     const phone = "573108853158";
@@ -250,6 +264,7 @@ function buyProduct(productId) {
     // Se abre una nueva pestaña/ventana hacia WhatsApp
     window.open(url, '_blank');
 }
+
 
 // Exponer la función al objeto global (si se usa inline en el HTML)
 window.buyProduct = buyProduct;
