@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+
+/* Encabezado */
+
+.header {
+    background: linear-gradient(29deg, #fe5c35, #faae42);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 1rem;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+
+/* Estilos comunes para elementos de la navbar (enlaces y botones) */
+
+.navbar ul li a,
+.navbar ul li button.nav-btn {
+    font-family: 'Fira Sans', sans-serif;
+    color: rgb(250, 250, 250);
+    font-size: 1.3rem;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Específico para botones */
+
+.navbar ul li button.nav-btn {
+    background: none;
+    cursor: pointer;
+}
+
+
+/* Estado hover para ambos */
+
+.navbar ul li a:hover,
+.navbar ul li button.nav-btn:hover {
+    background: white;
+    color: #333;
+}
+
+
+/* Sección de búsqueda y filtros */
+
+.search-filters {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#search-button {
+    padding: 0.5rem 1rem;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #20af57;
+}
+
+.filter-category select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Catálogo de productos */
+
+.catalog {
+    padding: 1rem 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.product-details h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-details p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Controles de cantidad */
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.quantity-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+}
+
+.quantity-btn:active {
+    background-color: #ccc;
+    transform: scale(0.95);
+}
+
+.quantity {
+    font-size: 16px;
+    font-weight: bold;
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+
+/* Botón Comprar */
+
+.buy-btn {
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #20af57;
+}
+
+
+/* Paginación */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #0f7a68;
+}
+
+.pagination span {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+/* Floating Cart */
+
+.floating-cart {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    background-color: #00df82;
+    border: 2px solid #08cfad;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 8px 15px rgba(18, 140, 126, 0.5);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-cart:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 20px rgba(18, 140, 126, 0.7);
+}
+
+.floating-cart .cart-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.floating-cart .cart-count {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgb(251, 248, 248);
+    color: rgb(0, 0, 0);
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Modal (opcional) */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-images img {
+    max-width: 100%;
+    margin: 0.5rem;
+}
+
+
+/* Pie de Página */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.newsletter-form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+    border-top: 1px solid #555;
+    padding-top: 1rem;
+}
+
+
+/* ===================== Responsive Styles (max-width: 600px) ===================== */
+
+@media (max-width: 600px) {
+    /* ---------- Header ---------- */
+    .header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .header-left {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .logo {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        /* Puedes ajustar el tamaño si es necesario */
+        width: 50px;
+    }
+    /* El título: en móviles se posiciona de forma estática para evitar superposición */
+    .navbar h1,
+    .navbar-title {
+        position: static;
+        transform: none;
+        font-size: 1.75rem;
+        /* Tamaño ligeramente reducido */
+        margin-bottom: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+    /* Menú: se dispone en columna o en fila con mayor separación */
+    .navbar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+    .navbar ul {
+        flex-direction: row;
+        gap: 0.75rem;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar ul li a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+    /* ---------- Sección de Búsqueda y Filtros ---------- */
+    .search-filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .search-bar,
+    .filter-category {
+        width: 100%;
+        text-align: center;
+    }
+    .filter-category select {
+        width: 100%;
+        max-width: 300px;
+    }
+    /* ---------- Catálogo de Productos ---------- */
+    .catalog {
+        padding: 1rem;
+    }
+    /* El grid se adapta reduciendo el tamaño mínimo de cada tarjeta */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .pagination button {
+        flex: 0 0 auto;
+        font-size: 1rem;
+        /* Opcional: un ancho fijo o mínimo, por ejemplo: */
+        min-width: 80px;
+    }
+    .pagination span {
+        flex: 1;
+        text-align: center;
+        font-size: 1rem;
+    }
+}

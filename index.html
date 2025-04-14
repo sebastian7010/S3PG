@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pet Market - El mejor lugar para encontrar todo tipo de productos para perros y gatos en Colombia. Compra collares, juguetes, camas y más. Envíos rápidos y atención inmediata.">
+    <meta name="keywords" content="productos para perros, productos para gatos, accesorios para mascotas, collares, juguetes para perros, camas para gatos, Pet Market">
+    <meta name="author" content="Pet Market">
+    <meta name="geo.region" content="CO">
+    <meta name="geo.placename" content="Colombia">
+    <meta name="language" content="es-CO">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="tu-codigo-de-verificacion" />
+    <!-- Opcional: Verifica tu sitio en Google -->
+
+    <title>PERROTE Y GATOTE | Accesorios y Productos para Mascotas en Colombia</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon logo.png" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Pet Market - Productos para Mascotas">
+    <meta property="og:description" content="Descubre todo tipo de productos para perros y gatos en Pet Market. Compra fácilmente y recibe atención inmediata.">
+    <meta property="og:image" content="https://example.com/assets/og-image.jpg">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pet Market - Productos para Mascotas">
+    <meta name="twitter:description" content="Descubre todo tipo de productos para perros y gatos en Pet Market. Compra fácilmente y recibe atención inmediata.">
+    <meta name="twitter:image" content="https://example.com/assets/twitter-image.jpg">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
+    <script type="module" src="script.js" defer></script>
+
+
+</head>
+
+<body>
+    <header class="header">
+        <!-- Menú de navegación -->
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="./catalogo/catalogo.html" class="nav-link">Catálogo</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a href="./index.html">
+            <img src="./assets/pyg-logo_h_color_blanco.png" alt="Logo" class="logo" />
+        </a>
+    </header>
+
+
+
+
+    <div class="banner">
+        <div class="banner-text">
+            ¡No preguntes si hay solo pide! 🐶🐱 &nbsp;&nbsp;&nbsp;&nbsp; ¡la tienda online mas grande de Colombia 🐶🐱 &nbsp;&nbsp;&nbsp;&nbsp; ¡Aprovecha nuestras ofertas exclusivas para mascotas! 🐶🐱 &nbsp;&nbsp;&nbsp;&nbsp; ¡No preguntes si hay solo pide! 🐶🐱
+            &nbsp;&nbsp;&nbsp;&nbsp; ¡la tienda online mas grande de Colombia! 🐶🐱
+        </div>
+        <div class="banner-text">
+            ¡No preguntes si hay solo pide! 🐶🐱 &nbsp;&nbsp;&nbsp;&nbsp; ¡la tienda online mas grande de Colombia 🐶🐱 &nbsp;&nbsp;&nbsp;&nbsp; ¡Aprovecha nuestras ofertas exclusivas para mascotas! 🐶🐱 &nbsp;&nbsp;&nbsp;&nbsp; ¡No preguntes si hay solo pide! 🐶🐱
+            &nbsp;&nbsp;&nbsp;&nbsp; ¡la tienda online mas grande de Colombia! 🐶🐱
+        </div>
+    </div>
+
+
+
+
+    <main class="main-content">
+        <div class="cta-container">
+
+            <button class="cta-button clicks" onclick="scrollToCarousels()">
+                COMPRA EN<br>
+                2 CLICKS
+            </button>
+
+
+            <section class="search-section">
+                <div class="search-bar-container">
+                    <img src="assets/lupa.svg" alt="Lupa" class="icon-lupa">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="Buscar productos para perros y gatos">
+                </div>
+            </section>
+
+        </div>
+
+        <section class="pet-selection">
+            <h2 class="section-title">¿TIENES UN PERRO O GATO?</h2>
+            <div class="pet-images">
+                <div class="pet-images">
+                    <div class="pet-image-container">
+                        <a href="perro/perro.html">
+                            <img src="assets/bob.png" alt="Perro con gafas" class="pet-image">
+                        </a>
+                    </div>
+                    <div class="pet-image-container">
+                        <a href="gato/gato.html">
+                            <img src="assets/gari.png" alt="Gato sonriente" class="pet-image">
+                        </a>
+                    </div>
+                </div>
+        </section>
+
+        <section class="carousel-section">
+            <div id="carousels-container"></div>
+        </section>
+
+    </main>
+
+    <div id="floating-cart" class="floating-cart" onclick="sendCartToWhatsApp()">
+        <img src="assets/noun-purchase-2804281.svg" alt="Carrito" class="cart-icon">
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
+
+    <div id="purchases-counter-container" class="purchases-counter">
+        <div class="text-counter">Compras realizadas</div>
+        <div id="counter" class="counter">0</div>
+    </div>
+
+
+    <!-- Modal para ver la imagen ampliada (colócalo aquí) -->
+    <div id="modal-overlay" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <div id="modal-images" class="modal-images">
+                <!-- Se cargarán las imágenes aquí -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./catalogo/catalogo.html">productos</a></li>
+                    <li><a href="./aboutUs/aboutUs.html">Sobre Nosotros</a></li>
+                    <li><a href="https://wa.me/573108853158" target="_blank" rel="noopener noreferrer">contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +57 3002536267</p>
+                <p><i class="fas fa-envelope"></i>somos@perroteygatote.com
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Suscríbete</h3>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@perrote_y_gatote" aria-label="TikTok">
+                        <img src="./assets/tiktok-icon.svg" alt="TikTok">
+                    </a>
+                    <a href="https://www.instagram.com/perrote_y_gatote" aria-label="Instagram">
+                        <img src="./assets/instagram-icon.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/PerroteGatote" aria-label="Facebook">
+                        <img src="./assets/facebook-icon.svg" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/15557173335" aria-label="WhatsApp">
+                        <img src="./assets/whatsapp-icon.svg" alt="WhatsApp">
+                    </a>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TOLENTINOS.S.A.S. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>

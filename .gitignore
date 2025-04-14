@@ -1,0 +1,9 @@
+mi_carpeta/carpetaComplementarios
+# Ignora la carpeta node_modules
+node_modules/
+
+# Ignora la carpeta dist
+dist/
+
+# Opcional: ignora otras cosas
+.env

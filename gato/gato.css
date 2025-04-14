@@ -1,0 +1,684 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    /* Espacio inferior para separar de lo siguiente */
+}
+
+.search-bar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    /* Ancho máximo para la barra de búsqueda */
+    width: 100%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.icon-lupa {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.search-bar {
+    flex: 1;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+}
+
+.button-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #ff7300;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #fe5800;
+    transform: scale(1.05);
+}
+
+
+/* ===================================================
+         HEADER & NAVIGATION
+         =================================================== */
+
+.header {
+    background: linear-gradient(29deg, #fe5c35, #faae42);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    color: white;
+}
+
+.logo {
+    width: 15%;
+    max-width: 100px;
+    height: auto;
+}
+
+.title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.navbar h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: white;
+    margin: 0;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    font-family: 'Fira Sans', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    color: black;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+    color: white;
+}
+
+
+/* ===================================================
+         MAIN CONTENT & LAYOUT
+         =================================================== */
+
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ===================================================
+      CAROUSEL / PRODUCT GRID
+      =================================================== */
+
+
+/* Contenedor principal: se centra en la página */
+
+#carousels-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: white;
+    overflow: visible;
+    /* Color de fondo suave para separar visualmente */
+}
+
+.carousel-container {
+    position: relative;
+    margin: 20px 0 0;
+    overflow: hidden;
+    width: 100%;
+    /* Asegurar que ocupe todo el ancho del contenedor padre */
+}
+
+
+/* El track del carrusel */
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    overflow: visible;
+    /* Permite que los botones se muestren si se salen del track */
+    width: 100%;
+    margin: 0 auto;
+    /* Centrado sin el truco de 100vw */
+}
+
+
+/* Configuración para páginas y filas */
+
+.carousel-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Espacio entre filas (páginas internas) */
+}
+
+.carousel-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* Seis columnas */
+    gap: 20px;
+    /* Espacio entre tarjetas */
+}
+
+
+/* ===================================================
+         PRODUCT CARD
+         =================================================== */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 280px;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-details h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-details p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+
+/* ===================================================
+         QUANTITY CONTROLS & BUY BUTTON
+         =================================================== */
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quantity-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+}
+
+.quantity-btn:active {
+    background-color: #ccc;
+    transform: scale(0.95);
+}
+
+.quantity {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.buy-btn {
+    width: 100%;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: #45a049;
+}
+
+
+/* ===================================================
+         FLOATING CART
+         =================================================== */
+
+.floating-cart {
+    position: fixed;
+    bottom: 33px;
+    right: 20px;
+    background-color: #00df82;
+    border: 2px solid #45a049;
+    border-radius: 50%;
+    padding: 10px 12px;
+    box-shadow: 0px 8px 15px #25d365bc;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-cart:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 12px 20px #45a049c0;
+}
+
+.floating-cart .cart-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.floating-cart .cart-count {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 50%;
+    padding: 1px 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===================================================
+         BACK TO TOP
+         =================================================== */
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    color: #333;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    border: none;
+}
+
+#back-to-top:hover {
+    background-color: #ffea00;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ===================================================
+         FOOTER
+         =================================================== */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ffd700;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.newsletter-form button {
+    padding: 10px 15px;
+    background-color: #ffd700;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #ffea00;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+
+/* ===================================================
+         MODAL
+         =================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 2100;
+}
+
+.modal-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-images img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.modal-images img:hover {
+    transform: scale(1.05);
+}
+
+
+/* ===================================================
+      BOTONES DE NAVEGACIÓN DEL CARRUSEL
+      =================================================== */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    /* Aumenta el z-index para ambos botones */
+}
+
+.carousel-btn.prev-btn {
+    left: 10px;
+}
+
+.carousel-btn.next-btn {
+    right: 10px;
+}
+
+.carousel-row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 480px) {
+    .carousel-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .carousel-row .product-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .button-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ===================== Responsive Header para "para Perros" ===================== */
+
+@media (max-width: 600px) {
+    /* Cambia la disposición del header a columna */
+    .header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+    /* La barra de navegación se organiza en columna para que el título y el menú se apilen */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        margin-top: 0.5rem;
+        height: auto;
+    }
+    /* El título se posiciona de forma normal (static) para que no se superponga con los botones */
+    .navbar-title {
+        position: static !important;
+        /* Quita la posición absoluta */
+        transform: none !important;
+        /* Quita la transformación */
+        font-size: 1.75rem;
+        /* Tamaño ligeramente reducido */
+        margin-bottom: -0.5rem;
+        /* Espacio para separar del menú */
+        text-align: center;
+        width: 100%;
+        padding: 1rem;
+    }
+    /* Opcional: si usas la clase .title en otro lado, asegúrate de que no interfiera */
+    .title {
+        position: static !important;
+        transform: none !important;
+    }
+    /* La lista de enlaces se dispone en fila o columna (aquí en fila con un gap) */
+    .navbar ul {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+    /* Ajusta los enlaces para que tengan un tamaño y padding adecuados */
+    .navbar ul li a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    padding: 20px;
+}

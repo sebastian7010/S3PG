@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> para Perros</title>
+    <link rel="stylesheet" href="perro.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <h1 class="navbar-title">Productos para Perros</h1>
+            <ul>
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="https://wa.me/573108853158" class="nav-link" target="_blank" rel="noopener noreferrer">Contacto</a></li>
+            </ul>
+
+        </nav>
+
+
+
+    </header>
+
+    <main class="main-content">
+        <section class="search-section">
+            <div class="search-bar-container">
+                <img src="../assets/lupa.svg" alt="Lupa" class="icon-lupa">
+                <input type="text" id="search-bar" class="search-bar" placeholder="Buscar productos para perros...">
+            </div>
+        </section>
+    </main>
+
+    <section class="button-section">
+        <button class="filter-btn" data-category="Accesorios para Perros">Accesorios para Perros</button>
+        <button class="filter-btn" data-category="Comida premium para perros">Comida Premium para Perros</button>
+        <button class="filter-btn" data-category="Comida para perros">Comida para Perros</button>
+        <button class="filter-btn" data-category="Juguetes para Perros">Juguetes para Perros</button>
+    </section>
+
+
+
+
+
+    <div id="carousels-container"></div>
+
+
+    <div id="floating-cart" class="floating-cart" onclick="sendCartToWhatsApp()">
+        <img src="../assets/noun-purchase-2804281.svg" alt="Carrito" class="cart-icon">
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../catalogo/catalogo.html">productos</a></li>
+                    <li><a href="../aboutUs/aboutUs.html">Sobre Nosotros</a></li>
+                    <li><a href="https://wa.me/573108853158" target="_blank" rel="noopener noreferrer">contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +57 3002536267</p>
+                <p><i class="fas fa-envelope"></i> somos@perroteygatote.com
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Suscríbete</h3>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@perrote_y_gatote" aria-label="TikTok">
+                        <img src="../assets/tiktok-icon.svg" alt="TikTok">
+                    </a>
+                    <a href="https://www.instagram.com/perrote_y_gatote" aria-label="Instagram">
+                        <img src="../assets/instagram-icon.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/PerroteGatote" aria-label="Facebook">
+                        <img src="../assets/facebook-icon.svg" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/15557173335" aria-label="WhatsApp">
+                        <img src="../assets/whatsapp-icon.svg" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TOLENTINOS.S.A.S. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <div id="modal-overlay" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <div id="modal-images" class="modal-images">
+                <!-- Se cargarán las imágenes aquí -->
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/fuse.js/dist/fuse.js"></script>
+
+    <script type="module" src="perro.js"></script>
+</body>
+
+</html>
